@@ -1,0 +1,16 @@
+{
+	"name": "wolfthemes/wolf-woocommerce-quickview",
+	"description": "A WordPress plugin that extends WPBakery Page Builder for Wolf Themes.",
+	"type": "wordpress-plugin",
+	"homepage": "https://github.com/wolfthemes/wolf-woocommerce-quickview",
+	"authors": [
+		{
+			"name": "WolfThemes",
+			"email": "contact@wolfthemes.com",
+			"homepage": "https://wolfthemes.com"
+		}
+	],
+	"require": {
+		"php": ">=5.6"
+	}
+}

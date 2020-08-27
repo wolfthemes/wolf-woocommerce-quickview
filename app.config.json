@@ -1,0 +1,14 @@
+{
+	"version": "1.1.0",
+	"updated": "2020-08-27",
+	"slug": "wolf-woocommerce-quickview",
+	"name": "WooCommerce Quickview",
+	"packagename": "WolfWooCommerceQuickview",
+	"created": "2018-05-24",
+	"createdNice": "24th May 2018",
+	"description": "Adds WooCommerce product quickview to your themes.",
+	"link": "https://wolfthemes.com/plugin/wolf-woocommerce-quickview",
+	"shortlink": "http://wlfthm.es/wcquickview",
+	"author": "WolfThemes",
+	"authorURI": "http://wolfthemes.com"
+}
