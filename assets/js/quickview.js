@@ -57,7 +57,7 @@ var WolfWCQuickView = function( $ ) {
 
 				// AJAX request
 				$.post( WolfWCQuickViewParams.ajaxUrl, data, function( response ) {
-					
+
 					//console.log( response );
 
 					if ( response ) {
@@ -68,19 +68,26 @@ var WolfWCQuickView = function( $ ) {
 							directionNav: true,
 							slideshow : false,
 							start: function() {
-								
+
 								setTimeout( function() {
-									
+
 									// if ( typeof wc_add_to_cart_variation_params !== 'undefined' ) {
 									// 	$ajaxContainer.find( '.variations_form' ).each( function() {
 									// 		$( this ).wc_variation_form();
 									// 	} );
 									// }
 
+
 									/* Variation swatch plugin */
-									if ( $.fn.tawcvs_variation_swatches_form ) {
-										$ajaxContainer.find( '.variations_form' ).tawcvs_variation_swatches_form();
-									}
+                                    if ( $.fn.tawcvs_variation_swatches_form ) {
+                                        var $variations_form = $ajaxContainer.find( '.variations_form:not(.swatches-support)' );
+                                        if ($variations_form.length > 0) {
+                                            $variations_form.each(function () {
+                                                $(this).wc_variation_form();
+                                            });
+                                            $variations_form.tawcvs_variation_swatches_form();
+                                        }
+                                    }
 
 									$overlay.addClass( 'wwcq-product-quickview-loaded' );
 									$( window ).trigger( 'wwcq_product_quickview_loaded' );

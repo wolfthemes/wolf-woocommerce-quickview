@@ -1,5 +1,9 @@
 # Changelog
 
+#### 27th April 2023 - Version 1.1.1
+
+-   Tweak: Compatibility with WooCommerce Variation Swatch plugin
+
 #### 27th August 2020 - Version 1.1.0
 
 -   Tweak: Unbrand plugin name
