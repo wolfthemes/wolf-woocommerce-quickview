@@ -1,7 +1,7 @@
 <?php
 /*
  * The quickview template file
-  */
+*/
 
 while ( have_posts() ) : the_post(); ?>
 

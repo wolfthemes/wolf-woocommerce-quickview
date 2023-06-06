@@ -90,14 +90,14 @@ function wwcq_get_url_from_attachment_id( $id, $size = 'large', $fallback = true
 function wwcq_enqueue_scripts() {
 
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min' );
-	
+
 	// Styles
 	wp_enqueue_style( 'wolf-woocommerce-quickview', WWCQ_CSS . '/quickview' . $suffix . '.css', array(), WWCQ_VERSION, 'all' );
 
 	// Scripts
 	wp_enqueue_script( 'wolf-woocommerce-quickview', WWCQ_JS . '/quickview' . $suffix . '.js', array( 'jquery' ), WWCQ_VERSION, true );
 
-	if ( ! wp_script_is( 'wc-add-to-cart-variation' ) ) {
+	if ( ! wp_script_is( 'wc-add-to-cart-variation' ) && function_exists( 'WC' ) ) {
 		$wc_assets_url = WC()->plugin_url();
 		wp_register_script( 'wc-add-to-cart-variation', $wc_assets_url . '/assets/js/frontend/add-to-cart-variation' . $suffix . '.js', array( 'jquery', 'wp-util' ), WC_VERSION );
 	}
@@ -142,14 +142,14 @@ function wwcqv_show_product_images() {
 	?>
 	<div class="product-images flexslider">
 		<?php
-			
+
 			do_action( 'wwcqv_product_images_start' );
 
 			/**
 			 * If gallery
 			 */
 			$attachment_ids = $product->get_gallery_image_ids();
-			
+
 			if ( is_array( $attachment_ids ) && ! empty( $attachment_ids ) ) {
 
 				echo '<ul class="slides">';
@@ -163,7 +163,7 @@ function wwcqv_show_product_images() {
 					</li>
 					<?php
 				}
-				
+
 				foreach ( $attachment_ids as $attachment_id ) {
 					if ( wp_attachment_is_image( $attachment_id ) ) {
 						?>
@@ -194,7 +194,7 @@ function wwcqv_show_product_images() {
 			 * Placeholder
 			 */
 			} else {
-				
+
 				$html  = '<span class="slide-content"><span class="woocommerce-product-gallery__image--placeholder">';
 				$html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src() ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
 				$html .= '</span></span>';
@@ -217,18 +217,18 @@ function wwcqv_view_action_template() {
 	//add_action( 'wwcqv_product_image', 'woocommerce_show_product_images', 20 );
 
 	// Summary
-	
+
 	add_action( 'wwcqv_product_summary', 'wwcqv_single_title', 5 );
-	
+
 	add_action( 'wwcqv_product_summary', 'woocommerce_template_single_rating', 10 );
 	add_action( 'wwcqv_product_summary', 'woocommerce_template_single_price', 15 );
 	add_action( 'wwcqv_product_summary', 'woocommerce_template_single_excerpt', 20 );
-	
+
 	/* Variation swatch plugin */
 	if ( class_exists( 'TA_WC_Variation_Swatches_Frontend' ) ) {
 		add_action( 'init', array( 'TA_WC_Variation_Swatches_Frontend', 'instance' ) );
 	}
-	
+
 
 	add_action( 'wwcqv_product_summary', 'woocommerce_template_single_add_to_cart', 25 );
 	//add_action( 'wwcqv_product_summary', 'woocommerce_template_single_meta', 30 );
@@ -266,16 +266,16 @@ function wwcqv_single_title() {
  * Thumbnail cropping
  */
 function wwcqv_inline_style() {
-	
+
 	$cropping = get_option( 'woocommerce_thumbnail_cropping', '1:1' );
 
 	if ( 'custom' === $cropping ) {
-		
+
 		$w = max( 1, get_option( 'woocommerce_thumbnail_cropping_custom_width', '4' ) );
 		$h = max( 1, get_option( 'woocommerce_thumbnail_cropping_custom_height', '3' ) );
-	
+
 	} elseif ( 'uncropped' === $cropping ) {
-		
+
 		$w = 3;
 		$h = 4;
 

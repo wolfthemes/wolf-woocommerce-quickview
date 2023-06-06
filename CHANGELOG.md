@@ -1,5 +1,9 @@
 # Changelog
 
+#### 7th June 2023 - Version 1.1.2
+
+-   Fix: Error message when WooCommerce is not activated
+
 #### 27th April 2023 - Version 1.1.1
 
 -   Tweak: Compatibility with WooCommerce Variation Swatch plugin
