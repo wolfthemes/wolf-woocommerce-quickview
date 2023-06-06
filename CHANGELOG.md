@@ -2,6 +2,7 @@
 
 #### 7th June 2023 - Version 1.1.2
 
+-   Fix: Updated minified JS file
 -   Fix: Error message when WooCommerce is not activated
 
 #### 27th April 2023 - Version 1.1.1
