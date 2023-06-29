@@ -62,6 +62,8 @@ var WolfWCQuickView = function( $ ) {
 
 					if ( response ) {
 
+                        $( 'body' ).addClass( 'wolf-wcqv-open' );
+
 						$ajaxContainer.html( response ).find( '.product-images' ).flexslider( {
 							animation: 'slide',
 							controlNav: false,
@@ -146,6 +148,7 @@ var WolfWCQuickView = function( $ ) {
 			$( '#wwcq-product-quickview-overlay' ).fadeOut( 500, function() {
 				$( '#wwcq-product-quickview-ajax-content' ).empty();
 				$( '#wwcq-product-quickview-overlay' ).removeClass( 'wwcq-product-quickview-loaded' );
+                $( 'body' ).removeClass( 'wolf-wcqv-open' );
 			} );
 		}
 	};

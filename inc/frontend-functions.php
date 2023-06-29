@@ -90,12 +90,18 @@ function wwcq_get_url_from_attachment_id( $id, $size = 'large', $fallback = true
 function wwcq_enqueue_scripts() {
 
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min' );
+	$folder  = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '/min';
+
+	if ( defined( 'AUTOPTIMIZE_PLUGIN_DIR' ) ) {
+		$suffix = '';
+		$folder = '';
+	}
 
 	// Styles
 	wp_enqueue_style( 'wolf-woocommerce-quickview', WWCQ_CSS . '/quickview' . $suffix . '.css', array(), WWCQ_VERSION, 'all' );
 
 	// Scripts
-	wp_enqueue_script( 'wolf-woocommerce-quickview', WWCQ_JS . '/quickview' . $suffix . '.js', array( 'jquery' ), WWCQ_VERSION, true );
+	wp_enqueue_script( 'wolf-woocommerce-quickview', WWCQ_JS . $folder . '/quickview' . $suffix . '.js', array( 'jquery' ), WWCQ_VERSION, true );
 
 	if ( ! wp_script_is( 'wc-add-to-cart-variation' ) && function_exists( 'WC' ) ) {
 		$wc_assets_url = WC()->plugin_url();

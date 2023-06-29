@@ -1,5 +1,9 @@
 # Changelog
 
+#### 29th June 2023 - Version 1.1.4
+
+-   Tweak: Compatibility with Wolf Popup plugin
+
 #### 7th June 2023 - Version 1.1.3
 
 -   Fix: Updated minified JS file
