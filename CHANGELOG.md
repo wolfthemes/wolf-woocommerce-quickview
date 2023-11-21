@@ -1,5 +1,9 @@
 # Changelog
 
+#### 21th November 2023 - Version 1.1.5
+
+-   Other: Declare Compatiblity with WooCommerce High Storage Performance
+
 #### 29th June 2023 - Version 1.1.4
 
 -   Tweak: Compatibility with Wolf Popup plugin
