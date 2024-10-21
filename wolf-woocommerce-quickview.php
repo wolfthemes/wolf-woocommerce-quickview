@@ -3,11 +3,11 @@
  * Plugin Name: WooCommerce Quickview
  * Plugin URI: https://wolfthemes.com/plugin/wolf-woocommerce-quickview
  * Description: Adds WooCommerce product quickview to your themes.
- * Version: 1.1.5
+ * Version: 1.1.6
  * Author: WolfThemes
  * Author URI: http://wolfthemes.com
- * Requires at least: 5.0
- * Tested up to: 5.5
+ * Requires at least: 6.0
+ * Tested up to: 6.6
  *
  * Text Domain: wolf-woocommerce-quickview
  * Domain Path: /languages/
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Wolf_WooCommerce_Quickview' ) ) {
 	 * Contains the main functions for Wolf_WooCommerce_Quickview
 	 *
 	 * @class Wolf_WooCommerce_Quickview
-	 * @version 1.1.5
+	 * @version 1.1.6
 	 * @since 1.0.0
 	 */
 	class Wolf_WooCommerce_Quickview {
@@ -56,7 +56,7 @@ if ( ! class_exists( 'Wolf_WooCommerce_Quickview' ) ) {
 		/**
 		 * @var string
 		 */
-		public $version = '1.1.5';
+		public $version = '1.1.6';
 
 		/**
 		 * @var WooCommerce Quickview The single instance of the class

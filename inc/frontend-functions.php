@@ -38,7 +38,7 @@ function wolf_quickview_button() {
 	?>
 	<a
 	class="product-quickview-button wwcq-product-quickview-button"
-	href="<?php the_permalink(); ?>"
+	href="#"
 	title="<?php echo esc_attr( $text ); ?>"
 	rel="nofollow"
 	data-product-title="<?php echo esc_attr( get_the_title() ); ?>"
